@@ -5,10 +5,10 @@ body {
   font-family: 'UnifrakturCook', cursive;
   font-weight: 700;
   font-style: normal;
-  font-size: 2rem;
+  font-size: 5rem;
 }
 
-.main-list {
+ul {
   width: 100vw;
   height: 100vh;
 
@@ -19,15 +19,15 @@ body {
   gap: 1rem;
 }
 
-.main-list-item a {
+ul a {
   color: currentColor;
   text-transform: capitalize;
   transition: all 1s ease-in-out;
 }
 
-.main-list-item:hover {
+ul a:hover {
   position: relative;
 
-  text-shadow: red 2px -5px;
+  text-shadow: rgb(95, 13, 13) 2px -5px;
   transform: scale(1.2);
 }

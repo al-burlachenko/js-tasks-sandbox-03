@@ -2,26 +2,6 @@
   --font-family: 'Montserrat', sans-serif;
 }
 
-body {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-
-  margin: 0;
-}
-
-ul,
-li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
 input,
 textarea {
   display: flex;
@@ -99,20 +79,4 @@ button[type='reset'] {
 
 button[type='reset']:hover {
   background-color: #ff7070;
-}
-
-.back-link {
-  display: block;
-  font-size: 3rem;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  padding: 10px;
-  opacity: 0.1;
-  transition: opacity 0.25s ease;
-}
-
-.back-link:hover {
-  opacity: 1;
 }
