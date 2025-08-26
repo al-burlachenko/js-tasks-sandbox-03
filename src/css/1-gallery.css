@@ -72,7 +72,6 @@ a {
   }
 }
 
-.basicLightbox img {
-  width: 90%;
-  object-fit: cover;
+.caption-text {
+  text-align: center;
 }

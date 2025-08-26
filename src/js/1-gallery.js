@@ -1,7 +1,12 @@
+// Описаний в документації
+import SimpleLightbox from 'simplelightbox';
+// Додатковий імпорт стилів
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 import images from './data';
 // console.log(images);
 const galleryRoot = document.querySelector('.gallery');
-
+console.log(SimpleLightbox);
 if (galleryRoot) {
   const data = images
     .map(image => {
@@ -11,7 +16,7 @@ if (galleryRoot) {
 		<img 
 		  class="gallery-image" 
 		  src="${preview}" 
-		  alt="${description}" 
+		  alt="${description}"
 		/>
 	</a>
 </li>`;
@@ -19,50 +24,14 @@ if (galleryRoot) {
     .join('');
   galleryRoot.insertAdjacentHTML('beforeend', data);
 
-  galleryRoot.addEventListener('click', event => {
-    event.preventDefault();
+  let gallery = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: '250',
+    captionClass: 'caption-text',
+    // captions: true,
+    // Нехай підпис буде знизу
+    // і з'являється через 250 мілісекунд після відкриття модального вікна.
   });
-
-  //   galleryRoot.addEventListener('click', event => {
-  //     event.preventDefault();
-  //     if (event.target.classList.contains('gallery-image')) {
-  //       const instance = basicLightbox.create(
-  //         `
-  //         <img src="${event.target.dataset.original}" data-original="${event.target.dataset.original}" alt="${event.target.alt}"  class="slideshowImage">
-  // `,
-  //         {
-  //           onShow: () => {
-  //             document.addEventListener('keydown', throttledNavigate);
-  //           },
-  //           onClose: () => {
-  //             document.removeEventListener('keydown', throttledNavigate);
-  //           },
-  //         }
-  //       );
-
-  //       function onNavigate(event) {
-  //         if (event.code === 'Escape' || !instance.visible()) {
-  //           instance.close();
-  //           return;
-  //         }
-
-  //         const dataArr = images.map(item => item.original);
-  //         const currentImage = document.querySelector('.slideshowImage');
-  //         if (!currentImage) return;
-  //         if (instance.visible()) {
-  //           let index = dataArr.indexOf(currentImage.dataset.original);
-  //           if (event.code === 'ArrowRight') index += 1;
-  //           if (event.code === 'ArrowLeft') index -= 1;
-
-  //           if (index > dataArr.length - 1) index = 0;
-  //           if (index < 0) index = dataArr.length - 1;
-
-  //           currentImage.src = dataArr[index];
-  //           currentImage.dataset.original = dataArr[index];
-  //         }
-  //       }
-  //       const throttledNavigate = _.throttle(onNavigate, 400);
-  //       instance.show();
-  //     }
-  //   });
 }
